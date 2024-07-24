@@ -1,7 +1,19 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+//    alias(libs.plugins.kotlin.serialization)
+
+//    kotlin("jvm") version "2.0.0"
+    kotlin("plugin.serialization") version "2.0.0"
+    id("kotlin-kapt")
+    alias(libs.plugins.compose.compiler)
+//    alias(libs.plugins.compose.compiler)
+//    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
+//    id ("org.jetbrains.kotlin.plugin.serialization") version "1.8.20" apply false
+
 }
+
+
 
 android {
     namespace = "com.example.navigationsample"
@@ -49,6 +61,13 @@ android {
     }
 }
 
+//composeCompiler {
+//    enableStrongSkippingMode = true
+//
+//    reportsDestination = layout.buildDirectory.dir("compose_compiler")
+//    stabilityConfigurationFile = rootProject.layout.projectDirectory.file("stability_config.conf")
+//}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -66,4 +85,9 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-}
+
+    // naviagtion
+//    implementation(libs.navigation.compose)
+//    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)}
